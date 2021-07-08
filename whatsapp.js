@@ -1,11 +1,13 @@
 const twilio = require('twilio');
+const dotenv = require("dotenv");
+dotenv.config();
 
 exports.whatsapp = async (
     toName, toNumber, fromName, link
 ) => {
     
-  let accountSid = 'AC96efb3986d563c6831516825be159652'; // Your Account SID from www.twilio.com/console
-  let authToken = 'c961b43c9c5eee10362f244db5590b42';   // Your Auth Token from www.twilio.com/console
+  let accountSid = process.env.TWILIO_ACCOUNT_SID; // Your Account SID from www.twilio.com/console
+  let authToken = process.env.TWILIO_AUTH_TOKEN;   // Your Auth Token from www.twilio.com/console
 
   let twilio = require('twilio');
   let client = new twilio(accountSid, authToken);
